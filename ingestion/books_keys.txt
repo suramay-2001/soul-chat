@@ -1,0 +1,59 @@
+# Keys under maa-aap-bucket (prefix books/). Used when S3_KEY_LIST_FILE is set.
+books/Absolutecognition.pdf
+books/ADGVolume1a.pdf
+books/ADGvolume2.pdf
+books/ADGvolume3.pdf
+books/Anandamayee-universal_mother.pdf
+books/Anandamayilila.pdf
+books/Atmananda.pdf
+books/Bhaskargujarati.pdf
+books/Bithika2.pdf
+books/Didi1.pdf
+books/Didi2.pdf
+books/Didi3.pdf
+books/Didi4.pdf
+books/Didi5.pdf
+books/Didi6.pdf
+books/Didi7.pdf
+books/Didi8.pdf
+books/Didi9.pdf
+books/EverWithYouVol1.pdf
+books/EverWithYouVol2.pdf
+books/Flower1.pdf
+books/Flower2.pdf
+books/Flower3.pdf
+books/Flower4.pdf
+books/Flower5.pdf
+books/Flower6.pdf
+books/Flower7.pdf
+books/Flower8.pdf
+books/Ganguli1final.pdf
+books/HolyChronicle1.pdf
+books/InHerPerfectLove.pdf
+books/kheyal-maa-inscrutable.pdf
+books/lannoy2.pdf
+books/LifenTeachings.pdf
+books/LifeofMa.pdf
+books/LifeofMa2.pdf
+books/MaAnandamayee.pdf
+books/masbhd.pdf
+books/Masouvenirbwfinal.pdf
+books/MATRI VANI 1.pdf
+books/MatriVani2.pdf
+books/MostGraciousvol2.pdf
+books/MostGraciousvol3.pdf
+books/MOTHERASREVEALED.pdf
+books/Naren.pdf
+books/Premlata.pdf
+books/Sadvani.pdf
+books/Satyananda.pdf
+books/Spanishma7.pdf
+books/Sricharanefinal.pdf
+books/ss1.pdf
+books/ss4.pdf
+books/SVAKRIYA SVARASAMRITA 2.pdf
+books/SVAKRIYA SVARASAMRITA 3.pdf
+books/TenStories.pdf
+books/That Compassionate Touch of MA ANANDAMAYEE.pdf
+books/Univmother.pdf
+books/VMMa.pdf

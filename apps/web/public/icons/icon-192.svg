@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <rect width="192" height="192" rx="24" fill="#FBF7F0"/>
+  <circle cx="96" cy="80" r="40" fill="#C4956A" opacity="0.25"/>
+  <text x="96" y="105" text-anchor="middle" font-size="64" font-family="serif" fill="#2D1B0E">🙏</text>
+  <text x="96" y="155" text-anchor="middle" font-size="16" font-family="Georgia,serif" fill="#5C3D2E" font-weight="600">Maa</text>
+</svg>

@@ -1,0 +1,197 @@
+[
+  {
+    "id": "advait-non-duality",
+    "title": "Advait — Non-Duality",
+    "artist": "Sri Ma Anandamayi",
+    "durationLabel": "pravachan",
+    "mood": "meditative",
+    "zone": "LISTEN",
+    "mediaType": "youtube",
+    "embedUrl": "https://www.youtube.com/embed/vkAJXhi37Sw",
+    "externalUrl": "https://www.youtube.com/watch?v=vkAJXhi37Sw",
+    "sourceUrl": "https://www.anandamayi.org/videos-and-audio-files/",
+    "description": "Pravachan on Advaita and the non-dual nature of reality.",
+    "lyrics": [
+      { "start": 0, "end": 9999, "text": "In non-duality, the seeker and the sought merge. Rest in that recognition." }
+    ]
+  },
+  {
+    "id": "river-name",
+    "title": "Ma's Voice",
+    "artist": "Sri Ma Anandamayi",
+    "durationLabel": "authentic audio",
+    "mood": "flowing",
+    "zone": "LISTEN",
+    "mediaType": "audio",
+    "audioSrc": "https://www.anandamayi.org/mmedia/mp/Mavoice.mp3",
+    "sourceUrl": "https://www.anandamayi.org/videos-and-audio-files/",
+    "description": "Direct audio from the Ma's Darshan source page.",
+    "lyrics": [
+      { "start": 0, "end": 18, "text": "Enter softly. Let the source voice arrive before interpretation." },
+      { "start": 19, "end": 44, "text": "This grove begins with a direct trace from the source-truth archive." },
+      { "start": 45, "end": 90, "text": "Stay with the timbre as a presence rather than background sound." }
+    ]
+  },
+  {
+    "id": "name-as-breath",
+    "title": "Sri Guru Sharanam",
+    "artist": "Sri Ma Anandamayi",
+    "durationLabel": "authentic audio",
+    "mood": "still",
+    "zone": "LISTEN",
+    "mediaType": "audio",
+    "audioSrc": "https://www.anandamayi.org/mmedia/mp/Sriguru.mp3",
+    "sourceUrl": "https://www.anandamayi.org/videos-and-audio-files/",
+    "description": "Authentic audio from the Ma's Darshan archive.",
+    "lyrics": [
+      { "start": 0, "end": 16, "text": "Breath enters. Breath leaves. Let remembrance move with it." },
+      { "start": 17, "end": 40, "text": "Listening becomes practice when the mind stops reaching ahead." },
+      { "start": 41, "end": 88, "text": "In the pause after the line, notice the presence that remains." }
+    ]
+  },
+  {
+    "id": "lamp-of-dawn",
+    "title": "Jai Guru Ma, Bhagavan",
+    "artist": "Jaya",
+    "durationLabel": "3.5 min",
+    "mood": "radiant",
+    "zone": "PRACTICE",
+    "mediaType": "audio",
+    "audioSrc": "https://www.anandamayi.org/mmedia/mp3/Jaya1.mp3",
+    "sourceUrl": "https://www.anandamayi.org/videos-and-audio-files/",
+    "description": "A brighter archival recording for morning remembrance.",
+    "lyrics": [
+      { "start": 0, "end": 22, "text": "Light the inward lamp with one steady act of attention." },
+      { "start": 23, "end": 52, "text": "A fixed moment each day becomes a doorway rather than a duty." },
+      { "start": 53, "end": 86, "text": "Return to the flame, and let the rest of the day arrange itself around it." }
+    ]
+  },
+  {
+    "id": "maa-singing",
+    "title": "Maa Singing",
+    "artist": "Sri Ma Anandamayi",
+    "durationLabel": "video kirtan",
+    "mood": "ecstatic",
+    "zone": "LISTEN",
+    "mediaType": "youtube",
+    "embedUrl": "https://www.youtube.com/embed/Q5033Xzver8",
+    "externalUrl": "https://www.youtube.com/watch?v=Q5033Xzver8",
+    "sourceUrl": "bhajans/links.txt",
+    "description": "Rare footage of Maa singing in ecstatic kirtan.",
+    "lyrics": [
+      { "start": 0, "end": 9999, "text": "The voice arrives without translation. Let it remain that way." }
+    ]
+  },
+  {
+    "id": "maa-jay-bhagavan",
+    "title": "Maa Jay Bhagavan",
+    "artist": "Sri Ma Anandamayi",
+    "durationLabel": "video bhajan",
+    "mood": "devotional",
+    "zone": "LISTEN",
+    "mediaType": "youtube",
+    "embedUrl": "https://www.youtube.com/embed/j-Ui7jrJlhA",
+    "externalUrl": "https://www.youtube.com/watch?v=j-Ui7jrJlhA",
+    "sourceUrl": "bhajans/links.txt",
+    "description": "Hey Bhagavan — the ambient theme of this site.",
+    "lyrics": [
+      { "start": 0, "end": 9999, "text": "Hey Bhagavan — the eternal call woven into every moment of this journey." }
+    ]
+  },
+  {
+    "id": "maa-vasudevaya",
+    "title": "Maa Vasudevaya Bhajan",
+    "artist": "Sri Ma Anandamayi",
+    "durationLabel": "video bhajan",
+    "mood": "peaceful",
+    "zone": "LISTEN",
+    "mediaType": "youtube",
+    "embedUrl": "https://www.youtube.com/embed/_tirboamOaQ",
+    "externalUrl": "https://www.youtube.com/watch?v=_tirboamOaQ",
+    "sourceUrl": "bhajans/links.txt",
+    "description": "Om Namo Narayanaya — Vasudevaya chant.",
+    "lyrics": [
+      { "start": 0, "end": 9999, "text": "The name repeats until the namer dissolves into the named." }
+    ]
+  },
+  {
+    "id": "krishna-das-bhajan",
+    "title": "Krishna Das — Bhagavan",
+    "artist": "Krishna Das",
+    "durationLabel": "kirtan",
+    "mood": "expansive",
+    "zone": "LISTEN",
+    "mediaType": "youtube",
+    "embedUrl": "https://www.youtube.com/embed/0cxFqqXLGXA",
+    "externalUrl": "https://www.youtube.com/watch?v=0cxFqqXLGXA",
+    "sourceUrl": "bhajans/links.txt",
+    "description": "Krishna Das chanting — a Western kirtan voice rooted in Maa's lineage.",
+    "lyrics": [
+      { "start": 0, "end": 9999, "text": "Krishna Das carries the kirtan thread westward from Neem Karoli Baba through Maa's orbit." }
+    ]
+  },
+  {
+    "id": "maa-names",
+    "title": "Maa's Sacred Names",
+    "artist": "Devotees",
+    "durationLabel": "chant",
+    "mood": "meditative",
+    "zone": "PRACTICE",
+    "mediaType": "youtube",
+    "embedUrl": "https://www.youtube.com/embed/d635CO7-Ikw",
+    "externalUrl": "https://www.youtube.com/watch?v=d635CO7-Ikw",
+    "sourceUrl": "bhajans/links.txt",
+    "description": "Recitation of Maa's sacred names for meditation.",
+    "lyrics": [
+      { "start": 0, "end": 9999, "text": "Each name is a doorway. Pass through one at a time." }
+    ]
+  },
+  {
+    "id": "maa-devotee-bhajan",
+    "title": "Devotee Bhajan",
+    "artist": "Devotees",
+    "durationLabel": "kirtan",
+    "mood": "communal",
+    "zone": "LISTEN",
+    "mediaType": "youtube",
+    "embedUrl": "https://www.youtube.com/embed/DrrtXUCp5mI",
+    "externalUrl": "https://www.youtube.com/watch?v=DrrtXUCp5mI",
+    "sourceUrl": "bhajans/links.txt",
+    "description": "Devotee-led kirtan from the sangha tradition.",
+    "lyrics": [
+      { "start": 0, "end": 9999, "text": "When voices merge in kirtan, individual will dissolves into shared devotion." }
+    ]
+  },
+  {
+    "id": "maa-pravachan-qa",
+    "title": "Maa Pravachan Q&A",
+    "artist": "Sri Ma Anandamayi",
+    "durationLabel": "video pravachan",
+    "mood": "insight",
+    "zone": "LISTEN",
+    "mediaType": "youtube",
+    "embedUrl": "https://www.youtube.com/embed/vkAJXhi37Sw",
+    "externalUrl": "https://www.youtube.com/watch?v=vkAJXhi37Sw",
+    "sourceUrl": "bhajans/links.txt",
+    "description": "Pravachan Q&A session with Maa.",
+    "lyrics": [
+      { "start": 0, "end": 9999, "text": "Questions dissolve when the asker rests in the presence of the answerer." }
+    ]
+  },
+  {
+    "id": "maa-life-documentary",
+    "title": "Maa Life Documentary",
+    "artist": "Documentary",
+    "durationLabel": "documentary",
+    "mood": "journey",
+    "zone": "VIDEO",
+    "mediaType": "youtube",
+    "embedUrl": "https://www.youtube.com/embed/fSUI4Sn-hr4",
+    "externalUrl": "https://www.youtube.com/watch?v=fSUI4Sn-hr4",
+    "sourceUrl": "bhajans/links.txt",
+    "description": "Documentary tracing Maa's life journey.",
+    "lyrics": [
+      { "start": 0, "end": 9999, "text": "Biography becomes hagiography when the subject lives beyond the personal." }
+    ]
+  }
+]

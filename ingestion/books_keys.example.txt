@@ -1,0 +1,3 @@
+# One object key per line (full key in the bucket). Lines starting with # are ignored.
+# Example:
+# books/Absolutecognition.pdf

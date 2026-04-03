@@ -1,0 +1,45 @@
+# ── Secrets (NEVER commit) ──────────────────────
+*.env.local
+*.env.production
+*.env.*.local
+.env
+.env.local
+.env.production
+**/.*env.local
+ingestion/.env.local
+apps/web/.env.local
+
+# ── Downloaded PDF cache ────────────────────────
+.tmp/
+**/.tmp/
+
+# ── Python ──────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.python-version
+.venv*/
+venv/
+
+# ── Node / JS ──────────────────────────────────
+node_modules/
+dist/
+build/
+.vercel/
+*.tsbuildinfo
+.cache/
+.parcel-cache/
+
+# ── OS / IDE ────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/settings.json
+
+# ── Logs ────────────────────────────────────────
+*.log
+npm-debug.log*
