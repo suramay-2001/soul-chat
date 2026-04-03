@@ -102,6 +102,8 @@ function FallbackAudio({ bhajan }: { bhajan: Bhajan }) {
         src={allSrcs[srcIndex]}
         controls
         autoPlay
+        // Valid HTML; @types/react may omit referrerPolicy on <audio>
+        {...{ referrerPolicy: "no-referrer" as const }}
         className="h-8 w-full max-w-[280px]"
         onLoadStart={(e) => {
           (e.target as HTMLAudioElement).volume = 0.25;
