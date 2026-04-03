@@ -29,6 +29,9 @@ npm install
 cp apps/web/.env.example apps/web/.env.local
 # Edit apps/web/.env.local with your real values
 
+# Build workspace packages (once, or when they change):
+npm run -w @maa/shared build && npm run -w @maa/retrieval build
+
 # Terminal 1 — local API server (port 3001):
 npm run -w @maa/web dev:api
 

@@ -1,7 +1,7 @@
 {
   "framework": "vite",
   "installCommand": "cd ../.. && npm install",
-  "buildCommand": "cd ../.. && npm run -w @maa/web build",
+  "buildCommand": "cd ../.. && npm run -w @maa/shared build && npm run -w @maa/retrieval build && npm run -w @maa/web build",
   "outputDirectory": "dist",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" }
