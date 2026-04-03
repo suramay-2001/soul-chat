@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 import type { Photo, Video, Bhajan } from "@maa/shared";
 import { sanitizeMediaPayload } from "@maa/shared";
+import { proxiedMediaUrl } from "../lib/media-proxy";
 
 const MAX_IMG_RETRIES = 4;
 const MAX_AUDIO_RETRIES = 3;
@@ -31,7 +32,7 @@ function FallbackImage({ pool }: { pool: Photo[] }) {
 
   return (
     <img
-      src={photo.src}
+      src={proxiedMediaUrl(photo.src)}
       alt={photo.caption}
       loading="lazy"
       referrerPolicy="no-referrer"
@@ -99,11 +100,9 @@ function FallbackAudio({ bhajan }: { bhajan: Bhajan }) {
       </p>
       <audio
         key={allSrcs[srcIndex]}
-        src={allSrcs[srcIndex]}
+        src={proxiedMediaUrl(allSrcs[srcIndex])}
         controls
         autoPlay
-        // Valid HTML; @types/react may omit referrerPolicy on <audio>
-        {...{ referrerPolicy: "no-referrer" as const }}
         className="h-8 w-full max-w-[280px]"
         onLoadStart={(e) => {
           (e.target as HTMLAudioElement).volume = 0.25;

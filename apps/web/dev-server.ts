@@ -1,6 +1,7 @@
 import { createServer, type ServerResponse } from "node:http";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { isAllowedAudioUrl, isAllowedImageUrl } from "@maa/shared";
 
 const envPath = resolve(import.meta.dirname, ".env.local");
 try {
@@ -33,6 +34,7 @@ const PORT = 3001;
 const MODEL = process.env.OPENAI_MODEL || "gpt-4o";
 const EMBED_MODEL = process.env.OPENAI_EMBED_MODEL || "text-embedding-3-large";
 const MAX_BODY_BYTES = 4096;
+const MAX_MEDIA_PROXY_BYTES = 25 * 1024 * 1024;
 const ALLOWED_ORIGINS = new Set([
   "http://localhost:5173",
   "http://localhost:3000",
@@ -58,6 +60,63 @@ const server = createServer(async (req, res) => {
   if (req.method === "OPTIONS") {
     res.writeHead(204);
     return res.end();
+  }
+
+  if (req.method === "GET" && req.url?.startsWith("/api/media")) {
+    let target: string;
+    try {
+      const u = new URL(req.url, "http://127.0.0.1");
+      target = u.searchParams.get("u") ?? "";
+    } catch {
+      res.writeHead(400, { "Content-Type": "application/json" });
+      return res.end(JSON.stringify({ error: "Bad request" }));
+    }
+    if (!target || (!isAllowedImageUrl(target) && !isAllowedAudioUrl(target))) {
+      res.writeHead(400, { "Content-Type": "application/json" });
+      return res.end(JSON.stringify({ error: "Invalid or disallowed URL" }));
+    }
+    const ip = req.socket.remoteAddress ?? "unknown";
+    const rl = checkRateLimit(ip);
+    res.setHeader("X-RateLimit-Remaining", String(rl.remaining));
+    if (!rl.allowed) {
+      res.setHeader("Retry-After", String(Math.ceil(rl.resetMs / 1000)));
+      res.writeHead(429, { "Content-Type": "application/json" });
+      return res.end(JSON.stringify({ error: "Too many requests" }));
+    }
+    try {
+      const upstream = await fetch(target, {
+        redirect: "follow",
+        headers: {
+          "User-Agent": "MaaTeachings/1.0 (media proxy)",
+          Accept: "*/*",
+        },
+      });
+      if (!upstream.ok) {
+        res.writeHead(502);
+        return res.end();
+      }
+      const len = upstream.headers.get("content-length");
+      if (len && Number(len) > MAX_MEDIA_PROXY_BYTES) {
+        res.writeHead(413);
+        return res.end();
+      }
+      const buf = Buffer.from(await upstream.arrayBuffer());
+      if (buf.length > MAX_MEDIA_PROXY_BYTES) {
+        res.writeHead(413);
+        return res.end();
+      }
+      const ct =
+        upstream.headers.get("content-type") ?? "application/octet-stream";
+      res.writeHead(200, {
+        "Content-Type": ct,
+        "Cache-Control": "public, max-age=86400",
+      });
+      return res.end(buf);
+    } catch (e: unknown) {
+      console.error("media proxy:", e instanceof Error ? e.message : e);
+      res.writeHead(502);
+      return res.end();
+    }
   }
 
   if (req.method !== "POST" || req.url !== "/api/ask") {
@@ -236,5 +295,9 @@ const server = createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`\n  API dev server (SSE) → http://localhost:${PORT}/api/ask\n`);
+  console.log(
+    `\n  API dev server → http://localhost:${PORT}\n` +
+      `    POST /api/ask   (SSE)\n` +
+      `    GET  /api/media (image/audio proxy)\n`,
+  );
 });

@@ -8,10 +8,13 @@ grounded in her published books via RAG (retrieval-augmented generation).
 ```
 apps/web/           React + Vite frontend  (Vercel-deployed)
   api/ask.ts        Vercel serverless endpoint
+  api/media.ts      Same-origin proxy for S3 + anandamayi.org media (images/audio)
 services/retrieval/ pgvector search, prompt assembly, media
 packages/shared/    Shared TypeScript types
 ingestion/          Python PDF → pgvector pipeline (separate)
 ```
+
+Images and audio are loaded via **`GET /api/media?u=<encoded URL>`** so the browser talks only to your app; the server fetches allowlisted URLs (avoids referrer/hotlink issues and keeps CSP simple).
 
 ## Prerequisites
 
@@ -45,6 +48,23 @@ The Vite dev server runs at `http://localhost:5173` and proxies
 > **Alternative:** You can also use Vercel CLI (`npx vercel dev` from
 > `apps/web`) to run the serverless function locally instead of the
 > custom dev-server.
+
+### Testing S3 and the media proxy
+
+Example object that should return **200** and `Content-Type: image/jpeg` (use any known-good key from your bucket the same way):
+
+```bash
+# Direct to S3 (browser-style GET; no app involved)
+curl -sI "https://maa-aap-bucket.s3.us-east-1.amazonaws.com/media/images/20250930_205035.jpg"
+```
+
+With **`npm run -w @maa/web dev:api`** running on port 3001, the same bytes via the app proxy (URL must be allowlisted — this one is):
+
+```bash
+curl -sI "http://localhost:3001/api/media?u=https%3A%2F%2Fmaa-aap-bucket.s3.us-east-1.amazonaws.com%2Fmedia%2Fimages%2F20250930_205035.jpg"
+```
+
+After deploy, replace the host with your production origin, e.g. `https://your-app.vercel.app/api/media?u=...`.
 
 ## Deploy to Vercel
 
