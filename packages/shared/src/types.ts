@@ -39,6 +39,7 @@ export interface Bhajan {
   embedUrl?: string;
   externalUrl?: string;
   mood: string;
+  fallbackAudioSrcs?: string[];
 }
 
 export interface AskResponse {

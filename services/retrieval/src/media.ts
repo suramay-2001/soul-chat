@@ -1,4 +1,5 @@
 import type { Photo, Video, Bhajan } from "@maa/shared";
+import { sanitizeMediaPayload } from "@maa/shared";
 
 const S3_IMG = "https://maa-aap-bucket.s3.us-east-1.amazonaws.com/media/images/";
 
@@ -72,8 +73,10 @@ export function selectMedia(): {
   videos: Video[];
   bhajan: Bhajan | null;
 } {
-  const photoSample = pickN(IMAGE_IDS, 3);
-  const photos: Photo[] = photoSample.map((id, i) => ({
+  // Send 12 candidates so the frontend can cycle through fallbacks
+  // when individual images fail to load (S3 CORS / 404).
+  const photoSample = pickN(IMAGE_IDS, Math.min(12, IMAGE_IDS.length));
+  const photos: Photo[] = photoSample.map((id) => ({
     src: `${S3_IMG}${id}.jpg`,
     title: `Maa Darshan`,
     caption: "Sri Ma Anandamayi",
@@ -91,12 +94,25 @@ export function selectMedia(): {
 
   if (useDirectAudio) {
     const entry = pick(audioBhajans);
-    bhajan = { title: entry.title, artist: entry.artist, mood: entry.mood, mediaType: "audio", audioSrc: entry.audioSrc };
+    const fallbacks = audioBhajans
+      .filter((b) => b.audioSrc !== entry.audioSrc)
+      .map((b) => b.audioSrc!)
+      .slice(0, 3);
+    bhajan = {
+      title: entry.title, artist: entry.artist, mood: entry.mood,
+      mediaType: "audio", audioSrc: entry.audioSrc,
+      fallbackAudioSrcs: fallbacks,
+    };
   } else if (S3_AUDIO_IDS.length > 0) {
     const audioId = pick(S3_AUDIO_IDS);
     const num = parseInt(audioId.split("-").pop()!, 10);
-    bhajan = { title: `Maa Vani ${num}`, artist: "Sri Ma Anandamayi", mood: "meditative", mediaType: "audio", audioSrc: `${S3_AUDIO}${audioId}.mp3` };
+    const fallbacks = audioBhajans.map((b) => b.audioSrc!).slice(0, 3);
+    bhajan = {
+      title: `Maa Vani ${num}`, artist: "Sri Ma Anandamayi", mood: "meditative",
+      mediaType: "audio", audioSrc: `${S3_AUDIO}${audioId}.mp3`,
+      fallbackAudioSrcs: fallbacks,
+    };
   }
 
-  return { photos, videos, bhajan };
+  return sanitizeMediaPayload({ photos, videos, bhajan });
 }
